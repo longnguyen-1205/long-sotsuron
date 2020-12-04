@@ -1,0 +1,68 @@
+\documentclass[a4j,12pt]{jarticle}
+\usepackage[top=25mm,bottom=25mm,left=25mm,right=25mm]{geometry}
+\pagestyle{empty}
+
+\renewcommand{\author}[1]{\def\author{#1}}
+\renewcommand{\title}[1]{\def\title{#1}}
+\newcommand{\supervisor}[1]{\def\supervisor{#1}}
+\newcommand{\group}[1]{\def\group{#1}}
+
+\newcommand{\makeheader}{
+\newpage
+\noindent\\九州産業大学 情報科学部
+\noindent\\卒業研究発表会グループ\group
+\noindent\\卒業研究概要
+\vskip 20mm
+\begin{center}
+  \title
+\end{center}
+\vskip 15mm
+}
+\newcommand{\maketailer}{
+\vskip 20mm
+\begin{center}
+\setlength{\tabcolsep}{1mm}
+\begin{tabular}[h]{p{4zw}p{1em}l}
+ 発 表 者&:& \author (情報科学科)\\
+ 指導教員&:& \supervisor
+\end{tabular}
+\end{center}
+}
+\newenvironment{jkabst}{\makeheader}{\maketailer}
+
+
+\begin{document}
+% title, author, supervisor, group の指定は必須
+\title{スマートフォン用K'sLifeアプリ「スマト君」の開発}
+\author{16JK053 NGUYEN THANH LONG}
+\supervisor{下川 俊彦 教授}
+\group{１}
+
+% jkabst環境の中に、概要本文を記述する
+\begin{jkabst}
+
+  九州産業大学では、学生教育支援・事務情報システム K'sLifeを運用している。
+  K'sLife は、履修登録や成績確認、連絡通知、週間スケジュールなど様々な機能がある。
+  また、K'sLifeにはパソコン版のページとスマートフォン版のページがある。
+  しかし、スマートフォン版のページは利便性が低くあまり使われていない。
+
+  K'sLife はスマートフォンで使用するときも、毎回ログインしなければならない。
+  パソコン版のページとスマートフォン版のページがあるが、スマートフォン版の操作はステップが多い。
+  また、パソコン版はスマートフォンでは操作しにくい。
+  すなわち、K'sLife をスマートフォンで見るのは容易ではない。
+  この問題点を解決するため、本研究では専用のスマートフォン用アプリケーションを開発する。
+  このシステムを「スマト君」と名付けた。
+
+  スマト君は、K'sLife の API を提供するための 「スマト君 API Server」と、スマートフォン用アプリケーションである「スマト君アプリケーション」と、従来の K'sLife から構成される。
+  スマト君API Serverは、スマト君アプリケーションから HTTP でリクエストを受け、K'sLife にアクセスし、その結果を解析し JSON データとしてアプリケーションに返す。
+  スマト君アプリケーションは、スマト君 API serverを通して取得した K'sLife のデータを表示する。
+  本研究ではスマト君アプリケーションは iOS 用のアプリケーションとして実装した。
+
+  スマト君を実際に利用してもらい、アンケートで評価した。評価結果から、高評価を得た。
+  しかし、スマト君の機能はまだ少ない。
+  また、デザインはシンプルである。
+  今後の課題は、スマト君の機能強化とデザインの修正である。
+
+
+\end{jkabst}
+\end{document}
